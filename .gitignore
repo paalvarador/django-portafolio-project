@@ -1,0 +1,23 @@
+# .gitignore
+
+# Entornos virtuales
+venv/
+env/
+
+# Archivos de configuración de Python
+*.pyc
+__pycache__/
+
+# Archivos de configuración del entorno
+*.env
+
+# Base de datos local
+db.sqlite3
+
+# Archivos estáticos y media generados
+staticfiles/
+media/
+
+# Archivos de configuración de VScode y otros editores
+.vscode/
+.idea/
