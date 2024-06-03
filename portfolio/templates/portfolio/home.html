@@ -1,0 +1,56 @@
+{% extends 'portfolio/layout.html' %} {% block main %}
+<section id="profile" class="profile_information">
+  <div class="profile_social_links">
+    <ul class="social_links">
+      <li>
+        <a href="{{ profile_info.linkedin }}"
+          ><i class="fa-brands fa-instagram"></i
+        ></a>
+      </li>
+      <li>
+        <a href="{{ profile_info.github }}"
+          ><i class="fa-brands fa-github"></i
+        ></a>
+      </li>
+      <li>
+        <a href="{{ profile_info.x }}"
+          ><i class="fa-brands fa-x-twitter"></i
+        ></a>
+      </li>
+    </ul>
+  </div>
+  <div class="profile_info">
+    {{ profile_info.bio|safe }}
+    <div class="profile_info_typing">
+      <span id="typewriter"></span>
+    </div>
+    <a class="button-profile" href="#">Saber más</a>
+  </div>
+  <div class="profile_picture">
+    <img
+      src="{{ profile_info.profile_picture.url }}"
+      alt="{{ profile_info.name }}"
+      width="300px"
+      height="500px"
+    />
+  </div>
+</section>
+<section id="about" class="about_information">
+  <p>En esta parte se mostarará la información de educación</p>
+  <p>En esta parse se mostrará la experiencia laboral</p>
+</section>
+<section id="services" class="services_information">
+  <p>En esta parte se pondrá una lista de los servicios que puedo ofrecer</p>
+</section>
+<section id="portfolio" class="portfolio_information">
+  <p>
+    En esta parte se pondrá los trabajos y los proyectos que he desarrollado
+  </p>
+</section>
+<section id="contact" class="contact_information">
+  <p>
+    En esta parte se mostrará un formulario de contacto donde el usuario me
+    podrá escribir
+  </p>
+</section>
+{% endblock %}

@@ -39,7 +39,7 @@ class EducationAdmin(admin.ModelAdmin):
 admin.site.register(Education, EducationAdmin)
 
 class ContactAdmin(admin.ModelAdmin):
-    fields = ['name', 'email', 'message', 'sent_at']
+    fields = ['name', 'email', 'message']
 
     list_display = ['name', 'email']
 

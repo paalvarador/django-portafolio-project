@@ -1,0 +1,170 @@
+html, body {
+    background-color: white;
+}
+
+/* Estilos Cabecera */
+.header {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    z-index: 100;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.header h1 {
+    font-family: "Poppins";
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 1rem;
+}
+
+.header ul {
+    list-style: none;
+    display: flex;
+    padding: 0.8rem;
+}
+
+.header .hamburger {
+    margin-right: 1rem;
+    display: none;
+}
+
+.header li {
+    padding: 0.4rem 0.8rem;
+}
+
+.header li a {
+    color: #000;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.header li a:hover {
+    color: #333;
+}
+
+.menu li.active a {
+    padding: 0.4rem 0.8rem;
+    background-color: #333; /* Cambia esto según tus preferencias */
+    color: white;
+}
+
+main {
+    margin: 0 2rem;
+}
+
+
+/* Estilos profile */
+.profile_information {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 3rem;
+}
+
+.profile_social_links {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.profile_social_links ul {
+    padding: 1.2rem;
+}
+
+.profile_social_links ul li {
+    margin: 1.2rem 0;
+}
+
+.profile_social_links ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+.profile_social_links ul li a:hover {
+    color: rgba(0, 0, 255, 0.85);
+}
+
+.profile_info {
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+}
+
+.greeting {
+    font-size: 0.9rem;
+    padding-bottom: 1rem;
+}
+
+.presentation {
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+    font-weight: 600;
+}
+
+.description {
+    font-size: 1rem;
+    padding-bottom: 1rem;
+}
+
+.profile_info_typing {
+    background-color: black;
+    color: white;
+    padding: 1.5rem 1rem;
+    font-family: "Source Code Pro";
+    margin-bottom: 2rem;
+    height: 80px;
+}
+
+.button-profile {
+    width: 100px;
+    text-align: center;
+    padding: 1rem;
+    background-color: #222;
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 1.8rem;
+}
+
+.profile_picture {
+    margin-bottom: 1.8rem;
+}
+
+/* Estilos seccion sobre mi (about) */
+.about_information {
+    border: 1px solid red;
+}
+
+
+/* Media Queries */
+@media (max-width: 768px){
+    .header {
+        border: 1px solid red;
+    }
+
+    .header ul {
+        display: none;
+    }
+
+    .header .hamburger {
+        display: block;
+    }
+    
+    .profile_social_links {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        border: 1px solid green;
+    }
+}

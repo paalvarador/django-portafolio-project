@@ -1,0 +1,17 @@
+{% extends 'portfolio/layout.html' %} {% block main %}
+<h1>Welcome to my Blog</h1>
+{% if list_posts %}
+<h3>Publicaciones</h3>
+<ul>
+  {% for post in list_posts %}
+  <li>
+    <img src="{{ post.image.url }}" alt="Imagen del blog" />
+    <h2>{{post.title}}</h2>
+    <p>{{post.content}}</p>
+    <a href="{% url 'blog:post' post.id %}">Leer</a>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>No existen publicaciones</p>
+{% endif %} {% endblock %}

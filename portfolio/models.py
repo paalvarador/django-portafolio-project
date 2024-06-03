@@ -4,7 +4,7 @@ from django.db import models
 class Profile(models.Model):
     name = models.CharField(max_length=100)
     bio = models.TextField()
-    profile_picture = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
+    profile_picture = models.ImageField(upload_to='portfolio/profile_pics/', blank=True, null=True)
     email = models.EmailField()
     phone = models.CharField(max_length=20, blank=True, null=True)
     linkedin = models.URLField(blank=True, null=True)
@@ -18,7 +18,7 @@ class Profile(models.Model):
 class Project(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
-    image = models.ImageField(upload_to='project_images/', blank=True, null=True)
+    image = models.ImageField(upload_to='portfolio/project_images/', blank=True, null=True)
     technologies = models.CharField(max_length=200)
     github_link = models.URLField(blank=True, null=True)
     live_demo = models.URLField(blank=True, null=True)
