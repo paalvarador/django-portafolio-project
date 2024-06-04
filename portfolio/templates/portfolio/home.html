@@ -20,27 +20,145 @@
     </ul>
   </div>
   <div class="profile_info">
-    {{ profile_info.bio|safe }}
+    <div class="introduction">
+      <p>Hola, soy <span class="name">{{profile_info.name}}</span></p>
+      <p class="title">Desarrollador Fullstack</p>
+      <p class="description">
+        Ser un desarrollador Full Stack significa tener habilidades y
+        conocimientos tanto en el desarrollo frontend como en el backend de
+        aplicaciones web. Un desarrollador Full Stack es capaz de manejar todos
+        los aspectos de una aplicación web, desde la interfaz de usuario y la
+        experiencia del cliente hasta la lógica del servidor, la base de datos y
+        la implementación del servidor.
+      </p>
+    </div>
     <div class="profile_info_typing">
       <span id="typewriter"></span>
     </div>
     <a class="button-profile" href="#">Saber más</a>
   </div>
   <div class="profile_picture">
-    <img
-      src="{{ profile_info.profile_picture.url }}"
-      alt="{{ profile_info.name }}"
-      width="300px"
-      height="500px"
-    />
+    <img src="../../static/portfolio/images/developer.jpeg" width="500px" />
   </div>
 </section>
 <section id="about" class="about_information">
-  <p>En esta parte se mostarará la información de educación</p>
-  <p>En esta parse se mostrará la experiencia laboral</p>
+  <div class="section_header">
+    <span class="section_title">Sobre mi</span>
+    <span class="section_subtitle">Breve introducción</span>
+  </div>
+  <div class="about_profile">
+    <img src="{{profile_info.profile_picture.url}}" alt="Pablo Alvarado" />
+    <div class="about_profile_info">
+      <p>{{profile_info.name}}</p>
+      <p>{{profile_info.bio|safe}}</p>
+    </div>
+  </div>
+  <div class="about_education_experience">
+    <div class="about_education">
+      <span class="section_block_title">Formación Académica</span>
+      {% if list_education %}
+      <ul>
+        {% for education in list_education %}
+        <li>
+          <div class="card_education">
+            <div class="institution">
+              <i class="fa-solid fa-school"></i
+              ><span class="institution">{{education.institution}}</span>
+            </div>
+            <div class="degree">
+              <i class="fa-solid fa-graduation-cap"></i
+              ><span class="degree">{{education.degree}}</span>
+            </div>
+            <div class="card_education_dates">
+              <i class="fa-regular fa-calendar"></i
+              ><span>{{education.start_date|date:"Y-m-d"}}</span>
+              <i class="fa-regular fa-calendar"></i
+              ><span> {{education.end_date|date:"Y-m-d"}}</span>
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>No existe formación de educación</p>
+      {% endif %}
+    </div>
+    <div class="about_experience">
+      <span class="section_block_title">Experiencia Laboral</span>
+      {% if list_experience %}
+      <ul>
+        {% for experience in list_experience %}
+        <li>
+          <div class="card_experience">
+            <div class="role">
+              <i class="fa-solid fa-crosshairs"></i>
+              <span>{{experience.title}}</span>
+            </div>
+
+            <div class="company">
+              <i class="fa-regular fa-building"></i>
+              <span>{{ experience.company }}</span>
+            </div>
+
+            <div class="card_experience_dates">
+              <i class="fa-regular fa-calendar"></i>
+              <span>{{ experience.start_date|date:"Y-m-d" }}</span>
+              <i class="fa-regular fa-calendar"></i>
+              <span>{{ experience.end_date|date:"Y-m-d" }}</span>
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>No existe información de experiencia laboral</p>
+      {% endif %}
+    </div>
+  </div>
+  <div class="about_skills">
+    <span class="section_block_title">Habilidades</span>
+    {% if list_skills %}
+    <ul class="list_skills">
+      {% for skill in list_skills %}
+      <li>
+        <div class="card_skills">
+          <i class="{{skill.logo}}"></i>
+          <div class="card_skills_info">
+            <span>{{skill.name}}</span>
+            <div class="w3-light-grey">
+              <div class="w3-green" style="{{skill.style}}">
+                <p>{{skill.proficiency}}%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>No existen habilidades</p>
+    {% endif %}
+  </div>
 </section>
 <section id="services" class="services_information">
-  <p>En esta parte se pondrá una lista de los servicios que puedo ofrecer</p>
+  <span class="section_title">Servicios</span>
+  <span class="section_subtitle"
+    >Transformando ideas en realidades digitales</span
+  >
+  {% if list_service %}
+  <ul class="service_list">
+    {% for service in list_service %}
+    <li>
+      <div class="card_service">
+        <i class="{{service.icon}}"></i>
+        <span>{{service.name}}</span>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>Por ahora no tienes servicios listados</p>
+  {% endif %}
 </section>
 <section id="portfolio" class="portfolio_information">
   <p>

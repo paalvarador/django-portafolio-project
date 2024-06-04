@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Profile, Project, Skill, Experience, Education, Contact
+from .models import Profile, Project, Skill, Experience, Education, Contact, Service, OfferedService
 
 # Register your models here.
 class ProfileAdmin(admin.ModelAdmin):
@@ -18,7 +18,7 @@ class ProjectAdmin(admin.ModelAdmin):
 admin.site.register(Project, ProjectAdmin)
 
 class SkillAdmin(admin.ModelAdmin):
-    fields = ['name', 'proficiency']
+    fields = ['name', 'logo', 'proficiency']
 
     list_display = ['name', 'proficiency']
 
@@ -44,3 +44,18 @@ class ContactAdmin(admin.ModelAdmin):
     list_display = ['name', 'email']
 
 admin.site.register(Contact, ContactAdmin)
+
+class OfferedServiceInline(admin.TabularInline):
+    model = OfferedService
+    extra = 1
+
+class ServiceAdmin(admin.ModelAdmin):
+    fields = ['name', 'icon', 'description']
+
+    list_display = ['name', 'description']
+
+    inlines = [OfferedServiceInline]
+
+
+admin.site.register(Service, ServiceAdmin)
+
