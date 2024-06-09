@@ -141,34 +141,122 @@
   </div>
 </section>
 <section id="services" class="services_information">
-  <span class="section_title">Servicios</span>
-  <span class="section_subtitle"
-    >Transformando ideas en realidades digitales</span
-  >
+  <div class="section_header">
+    <span class="section_title">Servicios</span>
+    <span class="section_subtitle"
+      >Transformando ideas en realidades digitales</span
+    >
+  </div>
   {% if list_service %}
   <ul class="service_list">
     {% for service in list_service %}
     <li>
       <div class="card_service">
         <i class="{{service.icon}}"></i>
-        <span>{{service.name}}</span>
+        <span class="service-name">{{service.name}}</span>
+        <span class="service-button">
+          Ver más
+          <i class="fa-solid fa-arrow-right"></i>
+        </span>
       </div>
     </li>
     {% endfor %}
   </ul>
+
   {% else %}
   <p>Por ahora no tienes servicios listados</p>
   {% endif %}
 </section>
 <section id="portfolio" class="portfolio_information">
-  <p>
-    En esta parte se pondrá los trabajos y los proyectos que he desarrollado
-  </p>
+  <div class="section_header">
+    <span class="section_title">Portafolio</span>
+    <span class="section_subtitle"
+      >Los proyectos son la carta de presentación de un desarrollador</span
+    >
+  </div>
+  <div class="section_content">
+    {% if list_projects %}
+    <ul class="projects_list">
+      {% for project in list_projects %}
+      <li>
+        <div class="card_project">
+          <img
+            src="{{ project.image.url }}"
+            width="20%"
+            alt="Project Image"
+            class="card_project_img"
+          />
+          <div class="card_project_info">
+            <span class="project_title">{{ project.title }}</span>
+            <span class="project_description">{{ project.description }}</span>
+            <a href="{{ project.live_demo }}" target="_blank">Visitar</a>
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>Por ahora no tienes proyectos listados</p>
+    {% endif %}
+  </div>
 </section>
 <section id="contact" class="contact_information">
-  <p>
-    En esta parte se mostrará un formulario de contacto donde el usuario me
-    podrá escribir
-  </p>
+  <div class="section_header">
+    <span class="section_title">Contáctame</span>
+    <span class="section_subtitle"
+      >Por favor enviame un mensaje para ponernos en contacto</span
+    >
+  </div>
+  <div class="section_conent">
+    <div class="contact_left">
+      <span>Escríbeme</span>
+      <div class="by_email">
+        <i class="fa-solid fa-inbox"></i>
+        <span>Email</span>
+        <span>{{ profile_info.email }}</span>
+        <span>Escríbeme</span>
+      </div>
+      <div class="by_whatsapp">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>WhatsApp</span>
+        <span>{{ profile_info.phone }}</span>
+        <span>Escríbeme</span>
+      </div>
+    </div>
+    <div class="contact_right">
+      <span>¿Tienes un proyecto en mente?</span>
+      <form class="contact_form">
+        <div class="contact_form_div">
+          <label for="name" class="contact_form_tag">Nombre</label>
+          <input
+            type="text"
+            name="name"
+            class="contact_form_input"
+            placeholder="Escribe tú nombre"
+          />
+        </div>
+        <div class="contact_form_div">
+          <label for="email" class="contact_form_tag">Email</label>
+          <input
+            type="email"
+            name="email"
+            class="contact_form_input"
+            placeholder="Escribe tú email"
+          />
+        </div>
+        <div class="contact_form_div contact_form_area">
+          <label for="project" class="contact_form_tag">Proyecto</label>
+          <textarea
+            name="project"
+            cols="30"
+            rows="10"
+            class="contact_form_input"
+            placeholder="Escribe el proyecto que tienes en mente"
+          ></textarea>
+        </div>
+        <button class="button">Enviar Mensaje</button>
+      </form>
+    </div>
+  </div>
 </section>
 {% endblock %}

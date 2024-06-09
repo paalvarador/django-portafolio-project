@@ -303,6 +303,7 @@ main {
     flex-direction: column;
     align-items: center;
     margin-top: 2rem;
+    padding-bottom: 2rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -321,17 +322,67 @@ main {
     display: flex;
     flex-direction: column;
     padding: 6rem 0 6rem 2rem;
-    max-height: 100px;
 }
 
 .card_service i {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 2rem;
 }
 
-.card_service span {
-    font-size: 1.5rem;
-    width: 150px;
+.service-name {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.service-button {
+    display: inline-flex;
+    column-gap: 0.50rem;
+    color: #555;
+    cursor: pointer;
+}
+
+.service-button i {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.services_modal {
+    display: none;
+}
+
+/* Portfolio section */
+.portfolio_information {
+    margin-top: 2rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.section_content {
+    padding: 2rem 0;
+}
+
+.card_project {
+    display: flex;
+    margin: 1rem 0;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    min-height: 150px;
+}
+
+.card_project_info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+}
+
+.card_project_img {
+    min-width: 200px;
+}
+
+/* Sectión Contact */
+.contact_information {
+    margin-top: 2rem;
 }
 
 

@@ -11,6 +11,8 @@ def home(request):
     list_skills = Skill.objects.all()
     list_service = Service.objects.all()
 
+    print(list_projects)
+
     for skill in list_skills:
         skill.style = f"height: 24px; width: {skill.proficiency}%"
 
@@ -20,6 +22,7 @@ def home(request):
         'list_education': list_education,
         'list_experience': list_experience,
         'list_skills': list_skills,
-        'list_service': list_service
+        'list_service': list_service,
+        'list_projects': list_projects
         })
 
