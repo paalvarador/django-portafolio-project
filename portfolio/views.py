@@ -4,6 +4,7 @@ from .forms import ContactForm
 from django.core.mail import send_mail
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
+from django.conf import settings
 
 @csrf_exempt
 def home(request):
@@ -30,7 +31,7 @@ def home(request):
             subject = f'Mensaje de {contact.name} a través del formulario de contacto'
             message = f'Nombre: {contact.name}\nEmail: {contact.email}\n\nMensaje:\n{contact.message}'
 
-            fr = "paalvarador@outlook.com"
+            fr = settings.DEFAULT_FROM_EMAIL
             to = ["paalvarador@gmail.com"]
 
             # Enviar el correo
