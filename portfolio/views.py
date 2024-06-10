@@ -31,7 +31,7 @@ def home(request):
             subject = f'Mensaje de {contact.name} a través del formulario de contacto'
             message = f'Nombre: {contact.name}\nEmail: {contact.email}\n\nMensaje:\n{contact.message}'
 
-            fr = settings.DEFAULT_FROM_EMAIL
+            fr = "paalvarador@outlook.com"
             to = ["paalvarador@gmail.com"]
 
             # Enviar el correo
