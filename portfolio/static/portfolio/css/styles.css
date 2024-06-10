@@ -1,3 +1,50 @@
+:root {
+  --header-height: 3rem;
+
+  /*======== Colors ===========*/
+  /* Color mode HSL(hue, saturation, lightness)*/
+  --hue: 0;
+  --sat: 0%;
+  --title-color: hsl(var(--hue), var(--sat), 20%);
+  --title-color-dark: hsl(var(--hue), var(--sat), 0%);
+  --text-color: hsl(var(--hue), var(--sat), 46%);
+  --body-color: hsl(var(--hue), var(--sat), 98%);
+  --container-color: #fff;
+
+  /*============= Font and typography ==============*/
+  --body-font: "Poppins", sans-serif;
+
+  --big-font-size: 3.5rem;
+  --h1-font-size: 2.25rem;
+  --h2-font-size: 1.5rem;
+  --h3-font-size: 1.25rem;
+  --normal-font-size: 1rem;
+  --small-font-size: 0.875rem;
+  --smaller-font-size: 0.813rem;
+  --tiny-font-size: 0.625rem;
+
+  /*============= Font weight ===============*/
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  /*============ Margees Bottom =============*/
+  --mb-0-25: 0.25rem;
+  --mb-0-5: 0.5rem;
+  --mb-0-75: 0.75rem;
+  --mb-1: 1rem;
+  --mb-1-5: 1.5rem;
+  --mb-2: 2rem;
+  --mb-2-5: 2.5rem;
+  --mb-3: 3rem;
+
+  /*============ z index ============*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+  --z-modal: 1000;
+}
+
+
 html, body {
     background-color: white;
 }
@@ -123,21 +170,34 @@ main {
     flex-direction: column;
 }
 
-.greeting {
-    font-size: 0.9rem;
-    padding-bottom: 1rem;
+.introduction {
+    display: flex;
+    flex-direction: column;
 }
 
-.presentation {
+.introduction_presentation {
     font-size: 1.5rem;
-    padding-bottom: 1rem;
-    font-weight: 600;
+    margin-bottom: 0.5rem;
 }
 
-.description {
-    font-size: 1rem;
-    padding-bottom: 1rem;
+.introduction_name {
+    color: rgba(0, 180, 0, 0.82);
+    font-weight: 800;
 }
+
+.introduction_title {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.introduction_description {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-weight: normal;
+    font-style: italic;
+    color: #555;
+}
+
 
 .profile_info_typing {
     background-color: black;
@@ -175,8 +235,10 @@ main {
 .about_education_experience {
     display: flex;
     width: 100%;
+    gap: 1rem;
     flex-direction: row;
     justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 .about_education {
@@ -228,6 +290,12 @@ main {
     justify-content: space-evenly;
     width: 100%;
     padding: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.about_profile_name {
+    font-size: 1.4rem;
+    margin: 2rem 0;
 }
 
 .about_profile img {
@@ -314,6 +382,7 @@ main {
     align-items: center;
     flex-wrap: wrap;
     margin-top: 2rem;
+    justify-content: center;
 }
 
 .card_service {
@@ -385,14 +454,111 @@ main {
     margin-top: 2rem;
 }
 
+.section_content_contact {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.contact_left {
+    text-align: center;
+}
+
+.contact_left_title, .contact_right_title {
+    font-size: 1.5rem;
+    color: rgba(27, 31, 35, 0.70);
+    
+}
+
+.by_email, .by_whatsapp {
+    background-color: white;
+    border: 1px solid rgba(239, 193, 193, 0.5);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    text-align: center;
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.by_email i, .by_whatsapp i {
+    font-size: 2rem;
+}
+
+.by_email span, .by_whatsapp span {
+    margin: 0.40rem 0;
+}
+
+.contact_form {
+    margin: 1rem 0;
+    width: 360px;
+    text-align: center;
+}
+
+.contact_form_div {
+    height: 4rem;
+    margin-bottom: 0.25rem;
+    position: relative;
+}
+
+.contact_form_tag {
+    left: 1.25rem;
+    padding: 0.25rem;
+    position: absolute;
+    top: -0.65rem;
+    z-index: 10;
+    background-color: white;
+    font-size: smaller;
+}
+
+.contact_form_input {
+    background: none;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    border-radius: 0.75rem;
+    left: 0;
+    outline: none;
+    padding: 1rem;
+    position: absolute;
+    top: 0;
+    width: 90%;
+    z-index: 1;
+}
+
+.contact_form_area {
+    resize: none;
+    height: 10rem;
+}
+
+.button {
+    background-color: var(--title-color);
+    border-radius: 1rem;
+    color: var(--container-color);
+    font-weight: var(--font-medium);
+    padding: 1.25rem 2rem;
+    margin-top: 9rem;
+    cursor: pointer;
+}
+
+/* Footer */
+.footer {
+    border: 1px solid rgba(0, 0, 0, .3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 0;
+}
+
+.copyright {
+    padding: 2rem 0;
+}
 
 
 /* Media Queries */
 @media (max-width: 768px){
-    .header {
-        border: 1px solid red;
-    }
-
     .header ul {
         display: none;
     }
@@ -403,11 +569,5 @@ main {
     
     .profile_social_links {
         display: none;
-    }
-}
-
-@media (max-width: 480px) {
-    .header {
-        border: 1px solid green;
     }
 }

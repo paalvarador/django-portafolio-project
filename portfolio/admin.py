@@ -41,7 +41,7 @@ admin.site.register(Education, EducationAdmin)
 class ContactAdmin(admin.ModelAdmin):
     fields = ['name', 'email', 'message']
 
-    list_display = ['name', 'email']
+    list_display = ['name', 'email', 'sent_at']
 
 admin.site.register(Contact, ContactAdmin)
 

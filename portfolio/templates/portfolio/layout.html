@@ -22,12 +22,55 @@
     />
     <link rel="stylesheet" href="{% static 'portfolio/css/reset.css' %}" />
     <link rel="stylesheet" href="{% static 'portfolio/css/styles.css' %}" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{% static 'portfolio/js/scripts.js' %}"></script>
     <title>Portafolio - Pablo Alvarado</title>
   </head>
   <body>
     <header>{% include "partials/navbar.html" %}</header>
     <main>{% block main %}{% endblock %}</main>
-    <footer>{% block footer %}{% endblock %}</footer>
+    <footer>{% include "partials/footer.html" %}</footer>
+    <script>
+      $(document).ready(function () {
+        $("#contactForm").on("submit", function (event) {
+          event.preventDefault();
+
+          $.ajax({
+            url: "", // La misma URL donde el formulario está siendo enviado
+            type: "POST",
+            data: $(this).serialize(),
+            success: function (response) {
+              // Mostrar el modal de éxito
+              alert("Mensaje enviado correctamente");
+              $("#contactForm")[0].reset();
+            },
+            error: function (response) {
+              alert("Ha ocurrido un error. Inténtalo de nuevo.");
+            },
+          });
+        });
+
+        $("#closeModal").on("click", function () {
+          $("#successModal").hide();
+        });
+      });
+    </script>
+    <script>
+      document.querySelectorAll(".menu a").forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          const targetId = this.getAttribute("href").substring(1);
+          const targetSection = document.getElementById(targetId);
+
+          if (targetSection) {
+            e.preventDefault(); // Previene el comportamiento por defecto
+            window.history.pushState(null, null, `#${targetId}`); // Cambia la URL sin recargar la página
+            window.scrollTo({
+              top: targetSection.offsetTop,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+    </script>
   </body>
 </html>

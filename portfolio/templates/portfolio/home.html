@@ -21,9 +21,11 @@
   </div>
   <div class="profile_info">
     <div class="introduction">
-      <p>Hola, soy <span class="name">{{profile_info.name}}</span></p>
-      <p class="title">Desarrollador Fullstack</p>
-      <p class="description">
+      <p class="introduction_presentation">
+        Hola, soy <span class="introduction_name">{{profile_info.name}}</span>
+      </p>
+      <p class="introduction_title">Desarrollador FullStack</p>
+      <p class="introduction_description">
         Ser un desarrollador Full Stack significa tener habilidades y
         conocimientos tanto en el desarrollo frontend como en el backend de
         aplicaciones web. Un desarrollador Full Stack es capaz de manejar todos
@@ -35,7 +37,7 @@
     <div class="profile_info_typing">
       <span id="typewriter"></span>
     </div>
-    <a class="button-profile" href="#">Saber más</a>
+    <a class="button-profile" href="#about">Saber más</a>
   </div>
   <div class="profile_picture">
     <img src="../../static/portfolio/images/developer.jpeg" width="500px" />
@@ -49,7 +51,7 @@
   <div class="about_profile">
     <img src="{{profile_info.profile_picture.url}}" alt="Pablo Alvarado" />
     <div class="about_profile_info">
-      <p>{{profile_info.name}}</p>
+      <p class="about_profile_name">{{profile_info.name}}</p>
       <p>{{profile_info.bio|safe}}</p>
     </div>
   </div>
@@ -147,25 +149,27 @@
       >Transformando ideas en realidades digitales</span
     >
   </div>
-  {% if list_service %}
-  <ul class="service_list">
-    {% for service in list_service %}
-    <li>
-      <div class="card_service">
-        <i class="{{service.icon}}"></i>
-        <span class="service-name">{{service.name}}</span>
-        <span class="service-button">
-          Ver más
-          <i class="fa-solid fa-arrow-right"></i>
-        </span>
-      </div>
-    </li>
-    {% endfor %}
-  </ul>
+  <div class="section_content_services">
+    {% if list_service %}
+    <ul class="service_list">
+      {% for service in list_service %}
+      <li>
+        <div class="card_service">
+          <i class="{{service.icon}}"></i>
+          <span class="service-name">{{service.name}}</span>
+          <span class="service-button">
+            Ver más
+            <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
 
-  {% else %}
-  <p>Por ahora no tienes servicios listados</p>
-  {% endif %}
+    {% else %}
+    <p>Por ahora no tienes servicios listados</p>
+    {% endif %}
+  </div>
 </section>
 <section id="portfolio" class="portfolio_information">
   <div class="section_header">
@@ -207,54 +211,44 @@
       >Por favor enviame un mensaje para ponernos en contacto</span
     >
   </div>
-  <div class="section_conent">
+  <div class="section_content_contact">
     <div class="contact_left">
-      <span>Escríbeme</span>
+      <span class="contact_left_title">Escríbeme</span>
       <div class="by_email">
         <i class="fa-solid fa-inbox"></i>
         <span>Email</span>
         <span>{{ profile_info.email }}</span>
-        <span>Escríbeme</span>
+        <span><a href="mailto:{{ profile_info.email }}">Escríbeme</a></span>
       </div>
       <div class="by_whatsapp">
         <i class="fa-brands fa-whatsapp"></i>
         <span>WhatsApp</span>
         <span>{{ profile_info.phone }}</span>
-        <span>Escríbeme</span>
+        <span
+          ><a
+            href="https://wa.me/593964041045?text=Hola%20mucho%20gusto.%20Cu%C3%A9ntame%20en%20qu%C3%A9%20puedo%20ayudarte"
+            >Escríbeme</a
+          ></span
+        >
       </div>
     </div>
     <div class="contact_right">
-      <span>¿Tienes un proyecto en mente?</span>
-      <form class="contact_form">
+      <span class="contact_right_title">¿Tienes un proyecto en mente?</span>
+      <form id="contactForm" class="contact_form" method="post">
+        {% csrf_token %}
         <div class="contact_form_div">
           <label for="name" class="contact_form_tag">Nombre</label>
-          <input
-            type="text"
-            name="name"
-            class="contact_form_input"
-            placeholder="Escribe tú nombre"
-          />
+          {{ form.name }}
         </div>
         <div class="contact_form_div">
           <label for="email" class="contact_form_tag">Email</label>
-          <input
-            type="email"
-            name="email"
-            class="contact_form_input"
-            placeholder="Escribe tú email"
-          />
+          {{ form.email }}
         </div>
-        <div class="contact_form_div contact_form_area">
+        <div class="contact_form_div">
           <label for="project" class="contact_form_tag">Proyecto</label>
-          <textarea
-            name="project"
-            cols="30"
-            rows="10"
-            class="contact_form_input"
-            placeholder="Escribe el proyecto que tienes en mente"
-          ></textarea>
+          {{ form.message }}
         </div>
-        <button class="button">Enviar Mensaje</button>
+        <button type="submit" class="button">Enviar Mensaje</button>
       </form>
     </div>
   </div>
