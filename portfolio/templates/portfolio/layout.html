@@ -72,5 +72,62 @@
         });
       });
     </script>
+    <script>
+      $(document).ready(function () {
+        // Función para activar el menú inferior
+        function activateBottomMenu() {
+          $(".header").show(); // Agrega una clase al header para aplicar estilos específicos al menú inferior
+          $(".menu").hide(); // Muestra el menú
+          $(".logo").show();
+          $(".hamburger").show(); // Muestra el icono de hamburguesa
+          $(".close").hide(); // Oculta el icono de cerrar
+        }
+
+        // Función para activar el menú superior
+        function activateTopMenu() {
+          $(".header").show(); // Remueve la clase del header para aplicar estilos específicos al menú superior
+          $(".menu").show(); // Oculta el menú
+          $(".hamburger").hide(); // Oculta el icono de hamburguesa
+          $(".close").hide(); // Oculta el icono de cerrar
+        }
+
+        // Función para verificar el tamaño de la pantalla y activar el menú correspondiente
+        function checkWindowSize() {
+          if ($(window).width() <= 768) {
+            activateBottomMenu();
+          } else {
+            activateTopMenu();
+          }
+        }
+
+        // Ejecutar la función al cargar la página
+        checkWindowSize();
+
+        // Ejecutar la función cuando se redimensiona la ventana del navegador
+        $(window).resize(function () {
+          checkWindowSize();
+        });
+
+        // Evento de clic en el icono de hamburguesa para mostrar el menú en pantallas pequeñas
+        $(".hamburger").click(function () {
+          if ($(window).width() <= 768) {
+            $(".menu").show();
+            $(".logo").hide();
+            $(".hamburger").hide();
+            $(".close").show();
+          }
+        });
+
+        // Evento de clic en el icono de cerrar para ocultar el menú en pantallas pequeñas
+        $(".close").click(function () {
+          if ($(window).width() <= 768) {
+            $(".menu").hide();
+            $(".logo").show();
+            $(".hamburger").show();
+            $(".close").hide();
+          }
+        });
+      });
+    </script>
   </body>
 </html>
