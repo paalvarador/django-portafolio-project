@@ -4,9 +4,9 @@ from .models import Profile, Project, Skill, Experience, Education, Contact, Ser
 
 # Register your models here.
 class ProfileAdmin(admin.ModelAdmin):
-    fields = ['name', 'bio', 'profile_picture', 'email', 'phone', 'linkedin', 'github', 'x', 'personal_website']
+    fields = ['name', 'bio', 'profile_picture', 'email', 'phone', 'linkedin', 'github', 'x', 'personal_website', 'cv']
 
-    list_display = ['name', 'email', 'phone']
+    list_display = ['name', 'email', 'phone', 'cv']
 
 admin.site.register(Profile, ProfileAdmin)
 

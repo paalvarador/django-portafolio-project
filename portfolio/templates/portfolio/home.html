@@ -1,48 +1,58 @@
 {% extends 'portfolio/layout.html' %} {% block main %}
+<!-- Section Profile -->
 <section id="profile" class="profile_information">
-  <div class="profile_social_links">
-    <ul class="social_links">
-      <li>
-        <a href="{{ profile_info.linkedin }}"
-          ><i class="fa-brands fa-instagram"></i
-        ></a>
-      </li>
-      <li>
-        <a href="{{ profile_info.github }}"
-          ><i class="fa-brands fa-github"></i
-        ></a>
-      </li>
-      <li>
-        <a href="{{ profile_info.x }}"
-          ><i class="fa-brands fa-x-twitter"></i
-        ></a>
-      </li>
-    </ul>
-  </div>
-  <div class="profile_info">
-    <div class="introduction">
-      <p class="introduction_presentation">
-        Hola, soy <span class="introduction_name">{{profile_info.name}}</span>
-      </p>
-      <p class="introduction_title">Desarrollador FullStack</p>
-      <p class="introduction_description">
-        Ser un desarrollador Full Stack significa tener habilidades y
-        conocimientos tanto en el desarrollo frontend como en el backend de
-        aplicaciones web. Un desarrollador Full Stack es capaz de manejar todos
-        los aspectos de una aplicación web, desde la interfaz de usuario y la
-        experiencia del cliente hasta la lógica del servidor, la base de datos y
-        la implementación del servidor.
-      </p>
+  <div class="section_header"></div>
+  <div class="section_content_profile">
+    <div class="profile_social_links">
+      <ul class="social_links">
+        <li>
+          <a href="{{ profile_info.linkedin }}"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+        </li>
+        <li>
+          <a href="{{ profile_info.github }}"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+        </li>
+        <li>
+          <a href="{{ profile_info.x }}"
+            ><i class="fa-brands fa-x-twitter"></i
+          ></a>
+        </li>
+      </ul>
     </div>
-    <div class="profile_info_typing">
-      <span id="typewriter"></span>
+    <div class="profile_info">
+      <div class="introduction">
+        <p class="introduction_presentation">
+          Hola, soy <span class="introduction_name">{{profile_info.name}}</span>
+        </p>
+        <p class="introduction_title">Desarrollador FullStack</p>
+        <p class="introduction_description">
+          Ser un desarrollador Full Stack significa tener habilidades y
+          conocimientos tanto en el desarrollo frontend como en el backend de
+          aplicaciones web. Un desarrollador Full Stack es capaz de manejar
+          todos los aspectos de una aplicación web, desde la interfaz de usuario
+          y la experiencia del cliente hasta la lógica del servidor, la base de
+          datos y la implementación del servidor.
+        </p>
+      </div>
+      <div class="profile_info_typing">
+        <span id="typewriter"></span>
+      </div>
+      <div class="profile_buttons">
+        <a class="button-profile" href="#about">Saber más</a>
+        <a download href="{{ profile_info.cv.url }}" class="button-profile"
+          >Descargar CV</a
+        >
+      </div>
     </div>
-    <a class="button-profile" href="#about">Saber más</a>
-  </div>
-  <div class="profile_picture">
-    <img src="../../static/portfolio/images/developer.jpeg" width="500px" />
+    <div class="profile_picture">
+      <img src="../../static/portfolio/images/developer.jpeg" width="500px" />
+    </div>
   </div>
 </section>
+<!-- Section About -->
 <section id="about" class="about_information">
   <div class="section_header">
     <span class="section_title">Sobre mi</span>
@@ -142,6 +152,7 @@
     {% endif %}
   </div>
 </section>
+<!-- Section Services -->
 <section id="services" class="services_information">
   <div class="section_header">
     <span class="section_title">Servicios</span>
@@ -171,6 +182,7 @@
     {% endif %}
   </div>
 </section>
+<!-- Section Portfolio -->
 <section id="portfolio" class="portfolio_information">
   <div class="section_header">
     <span class="section_title">Portafolio</span>
@@ -204,6 +216,7 @@
     {% endif %}
   </div>
 </section>
+<!-- Section Contact -->
 <section id="contact" class="contact_information">
   <div class="section_header">
     <span class="section_title">Contáctame</span>

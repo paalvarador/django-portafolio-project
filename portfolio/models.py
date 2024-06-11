@@ -11,6 +11,7 @@ class Profile(models.Model):
     github = models.URLField(blank=True, null=True)
     x = models.URLField(blank=True, null=True)
     personal_website = models.URLField(blank=True, null=True)
+    cv = models.FileField(upload_to="portfolio/cv/", blank=True, null=True)
 
     def __str__(self) -> str:
         return self.name
