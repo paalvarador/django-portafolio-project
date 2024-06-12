@@ -14,6 +14,9 @@ import os
 from dotenv import load_dotenv
 from pathlib import Path
 import dj_database_url
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 load_dotenv();
 
@@ -157,3 +160,10 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('SENDGRID_USERNAME')
 EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_PASSWORD')
 DEFAULT_FROM_EMAIL = 'paalvarador@outlook.com'
+
+# Cloudinary settings
+cloudinary.config(
+    cloud_name = os.environ.get('CLOUDINARY_CLOUDNAME'),
+    api_key = os.environ.get('CLOUDINARY_APIKEY'),
+    api_secret = os.environ.get('CLOUDINARY_APISECRET')
+)

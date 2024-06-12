@@ -1,17 +1,18 @@
 from django.db import models
+import cloudinary.models
 
 # Create your models here.
 class Profile(models.Model):
     name = models.CharField(max_length=100)
     bio = models.TextField()
-    profile_picture = models.ImageField(upload_to='portfolio/profile_pics/', blank=True, null=True)
+    profile_picture = cloudinary.models.CloudinaryField('profile_picture', blank=True, null=True)
     email = models.EmailField()
     phone = models.CharField(max_length=20, blank=True, null=True)
     linkedin = models.URLField(blank=True, null=True)
     github = models.URLField(blank=True, null=True)
     x = models.URLField(blank=True, null=True)
     personal_website = models.URLField(blank=True, null=True)
-    cv = models.FileField(upload_to="portfolio/cv/", blank=True, null=True)
+    cv = cloudinary.models.CloudinaryField('cv', folder='portfolio/cv/', blank=True, null=True)
 
     def __str__(self) -> str:
         return self.name
