@@ -33,7 +33,7 @@ SECRET_KEY = 'django-insecure-h$5p6%vbi+yjg$2_f#muj#c)1#*ybeov5h)3#@)_4vtg6f!k*9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app', '.now.sh', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -140,8 +140,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-
-
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -166,3 +164,10 @@ cloudinary.config(
     api_key = os.environ.get('CLOUDINARY_APIKEY'),
     api_secret = os.environ.get('CLOUDINARY_APISECRET')
 )
+
+
+# At the end of file. add these lines
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+MEDIA_URLS ='/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
