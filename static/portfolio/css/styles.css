@@ -165,7 +165,7 @@ main {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    padding-top: 1.8rem;
+    padding-top: 4.8rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -587,6 +587,14 @@ main {
 
 /* Media Queries */
 @media (max-width: 768px){
+    .section_content_profile {
+        padding-top: 1rem;
+    }
+
+    .profile_social_links {
+        flex-direction: row;
+    }
+
     .section_header {
         margin-top: 0.4rem;
     }
