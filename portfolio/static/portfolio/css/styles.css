@@ -49,6 +49,11 @@ html, body {
     background-color: white;
 }
 
+a {
+    text-decoration: none;
+    color: #888;
+}
+
 /* Estilo global para todas las secciones */
 .section_header {
     display: flex;
@@ -561,7 +566,7 @@ main {
     color: var(--container-color);
     font-weight: var(--font-medium);
     padding: 1.25rem 2rem;
-    margin-top: 9rem;
+    margin-top: 3rem;
     cursor: pointer;
 }
 

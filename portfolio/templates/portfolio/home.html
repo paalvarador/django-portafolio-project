@@ -41,10 +41,12 @@
         <span id="typewriter"></span>
       </div>
       <div class="profile_buttons">
-        <a class="button-profile" href="#about">Saber más</a>
+        <a class="button-profile" href="#about"
+          >Saber más <i class="fa-solid fa-eye"></i
+        ></a>
         <a download href="{{ profile_info.cv.url }}" class="button-profile"
-          >Descargar CV</a
-        >
+          >Descargar CV <i class="fa-solid fa-file"></i
+        ></a>
       </div>
     </div>
     <div class="profile_picture">
@@ -257,7 +259,7 @@
           <label for="email" class="contact_form_tag">Email</label>
           {{ form.email }}
         </div>
-        <div class="contact_form_div">
+        <div class="contact_form_div contact_form_area">
           <label for="project" class="contact_form_tag">Proyecto</label>
           {{ form.message }}
         </div>

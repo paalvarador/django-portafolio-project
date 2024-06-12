@@ -8,5 +8,5 @@ class ContactForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={'name': 'name', 'class': 'contact_form_input', 'placeholder': 'Escribe tú nombre'}),
             'email': forms.EmailInput(attrs={'name': 'email', 'class': 'contact_form_input', 'placeholder': 'Escribe tú email'}),
-            'message': forms.TextInput(attrs={'name': 'project', 'class': 'contact_form_input contact_form_area', 'placeholder': 'Escribe el proyecto que tienes en mente'}),
+            'message': forms.Textarea(attrs={'name': 'project', 'cols': '30', 'rows': '10', 'class': 'contact_form_input', 'placeholder': 'Escribe el proyecto que tienes en mente'}),
         }
