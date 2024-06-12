@@ -20,7 +20,7 @@ class Profile(models.Model):
 class Project(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()
-    image = models.ImageField(upload_to='portfolio/project_images/', blank=True, null=True)
+    image = cloudinary.models.CloudinaryField('project_images', blank=True, null=True)
     technologies = models.CharField(max_length=200)
     github_link = models.URLField(blank=True, null=True)
     live_demo = models.URLField(blank=True, null=True)
